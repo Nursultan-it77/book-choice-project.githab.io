@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="book-list">
+    <h1>{{ title }}</h1>
+    
+    <div class="add-book-form">
+        <h2>Жаңа кітап қосу</h2>
+        <form action="/add_book/" method="post">
+            <div class="form-group">
+                <input type="text" name="title" placeholder="Кітап атауы" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="author" placeholder="Автор" required>
+            </div>
+            <div class="form-group">
+                <textarea name="description" placeholder="Сипаттама..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Қосу</button>
+        </form>
+    </div>
+
+    <div class="books-container">
+        {% for book in books %}
+        <div class="book-card">
+            <div class="book-info">
+                <h3>{{ book.title }}</h3>
+                <p class="author">{{ book.author }}</p>
+                {% if book.description %}
+                <p class="description">{{ book.description }}</p>
+                {% endif %}
+                <div class="meta">
+                    <span class="date">{{ book.created_at.strftime('%d.%m.%Y %H:%M') }}</span>
+                    <span class="votes">{{ book.votes }} дауыс</span>
+                </div>
+            </div>
+            <form action="/vote/{{ book.id }}" method="post">
+                <button type="submit" class="btn-vote">
+                    <i class="fas fa-vote-yea"></i> Дауыс беру
+                </button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

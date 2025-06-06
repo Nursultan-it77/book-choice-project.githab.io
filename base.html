@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | Кітаптар әлемі</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Жүктеу анимациясы -->
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <header class="sticky-header">
+        <nav>
+            <a href="/" class="logo">
+                <i class="fas fa-book-open"></i> Кітаптар әлемі
+            </a>
+            
+            <!-- Мобильдік меню түймесі -->
+            <button class="mobile-menu-btn" aria-label="Меню">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="nav-links">
+                <a href="/"><i class="fas fa-home"></i> Басты бет</a>
+                <a href="/voting_status"><i class="fas fa-chart-bar"></i> Дауыс ахуалы</a>
+                <a href="/winner"><i class="fas fa-trophy"></i> Жеңімпаз</a>
+                <a href="#" id="theme-toggle"><i class="fas fa-moon"></i> Тема</a>
+                <a href="#" id="lang-toggle"><i class="fas fa-language"></i> Тіл</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Хабарламалар блогы -->
+    <div class="notification-container" id="notification">
+        <div class="notification-content">
+            <span class="close-notification">&times;</span>
+            <p id="notification-message"></p>
+        </div>
+    </div>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Байланыс</h3>
+                <p><i class="fas fa-envelope"></i> email@example.com</p>
+                <p><i class="fas fa-phone"></i> +7 777 123 4567</p>
+            </div>
+            <div class="footer-section">
+                <h3>Әлеуметтік желілер</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Жаңалықтарға жазылу</h3>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Электрондық поштаңыз">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Кітаптар әлемі. Барлық құқықтар қорғалған.</p>
+            <div class="footer-links">
+                <a href="#">Құпиялылық саясаты</a>
+                <a href="#">Пайдалану шарттары</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Көтеру түймесі -->
+    <button id="back-to-top" title="Жоғарыға">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

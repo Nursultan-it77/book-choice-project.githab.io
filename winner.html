@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="winner-section">
+    <div class="winner-card">
+        <div class="crown-icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <h1>Жеңімпаз!</h1>
+        
+        <div class="winner-details">
+            <h2>{{ winner.title }}</h2>
+            <p class="author">{{ winner.author }}</p>
+            <p class="votes">{{ winner.votes }} дауыс жинады!</p>
+            
+            {% if winner.description %}
+            <div class="description">
+                <h3>Сипаттама:</h3>
+                <p>{{ winner.description }}</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="winner-actions">
+            <a href="/" class="btn-primary">Басты бетке оралу</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
